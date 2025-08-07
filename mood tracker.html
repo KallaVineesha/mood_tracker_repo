@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Matcher</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      transition: background 0.4s ease;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .mood-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .mood-buttons a {
+      padding: 12px 20px;
+      border-radius: 25px;
+      background-color: rgba(255,255,255,0.2);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .mood-buttons a:hover {
+      background-color: rgba(255,255,255,0.4);
+    }
+
+    .mood-section {
+      display: none;
+      max-width: 600px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .mood-section:target {
+      display: block;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .quote {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .tip {
+      font-style: italic;
+      margin-bottom: 15px;
+      font-size: 1em;
+      color: #e0e0e0;
+    }
+
+    .description {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mood backgrounds */
+    #happy:target { background-color: #fff3b0; color: #222; }
+    #sad:target { background-color: #3a4d8f; }
+    #anxious:target { background-color: #593e6f; }
+    #tired:target { background-color: #34495e; }
+    #excited:target { background-color: #ff4e50; }
+    #angry:target { background-color: #b71c1c; }
+    #reflective:target { background-color: #2e2f4f; }
+    #relaxed:target { background-color: #1abc9c; }
+
+    .default {
+      max-width: 600px;
+      padding: 30px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .mood-buttons a {
+        padding: 10px 16px;
+        font-size: 0.95em;
+      }
+
+      .quote {
+        font-size: 1.1em;
+      }
+
+      .description {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎭 Mood Matcher</h1>
+
+  <div class="mood-buttons">
+    <a href="#happy">😊 Happy</a>
+    <a href="#sad">😔 Sad</a>
+    <a href="#anxious">😰 Anxious</a>
+    <a href="#tired">😴 Tired</a>
+    <a href="#excited">😍 Excited</a>
+    <a href="#angry">😡 Angry</a>
+    <a href="#reflective">🤔 Reflective</a>
+    <a href="#relaxed">😌 Relaxed</a>
+  </div>
+
+  <div class="default">
+    Select your current mood to view a quote, a tip, and a small message to match your state of mind ✨
+  </div>
+
+  <!-- Mood Sections -->
+  <div id="happy" class="mood-section">
+    <div class="quote">"Happiness is not by chance, but by choice." – Jim Rohn</div>
+    <div class="tip">Smile at someone today — it’s contagious!</div>
+    <div class="description">Happiness is a beautiful energy. Share it, embrace it, and let it flow freely. Even small joys can light up your entire day.</div>
+  </div>
+
+  <div id="sad" class="mood-section">
+    <div class="quote">"Tears come from the heart and not from the brain." – Leonardo da Vinci</div>
+    <div class="tip">Let yourself feel. Then let it go. Breathe deeply.</div>
+    <div class="description">It's okay to feel sad. Emotions are part of being human. Give yourself permission to rest and heal — brighter days are ahead.</div>
+  </div>
+
+  <div id="anxious" class="mood-section">
+    <div class="quote">"You don’t have to control your thoughts. You just have to stop letting them control you." – Dan Millman</div>
+    <div class="tip">Close your eyes. Breathe in 4s, hold 4s, out 4s. Repeat 3 times.</div>
+    <div class="description">Anxiety can feel overwhelming, but you're not alone. Slow down, ground yourself, and focus on the present moment — you're safe.</div>
+  </div>
+
+  <div id="tired" class="mood-section">
+    <div class="quote">"Sometimes the most productive thing you can do is rest." – Mark Black</div>
+    <div class="tip">Take a 5-minute stretch or power nap.</div>
+    <div class="description">Feeling drained? It's okay. Rest is productive too. Take a pause, breathe, and let your body and mind recharge.</div>
+  </div>
+
+  <div id="excited" class="mood-section">
+    <div class="quote">"Enthusiasm moves the world." – Arthur Balfour</div>
+    <div class="tip">Channel your excitement into something creative!</div>
+    <div class="description">Excitement is a spark. Use this energy to start something new, spread joy, or make bold moves. You’re unstoppable today!</div>
+  </div>
+
+  <div id="angry" class="mood-section">
+    <div class="quote">"Speak when you are angry and you will make the best speech you will ever regret." – Ambrose Bierce</div>
+    <div class="tip">Take 10 deep breaths before reacting. Walk away for a bit.</div>
+    <div class="description">Anger is powerful — but you are more powerful. Channel it into positive action, not damage. You are in control of your response.</div>
+  </div>
+
+  <div id="reflective" class="mood-section">
+    <div class="quote">"Knowing yourself is the beginning of all wisdom." – Aristotle</div>
+    <div class="tip">Write one thing you learned about yourself today.</div>
+    <div class="description">This is a beautiful time for self-awareness. Reflect on where you’ve been, and dream about where you’re going. Growth starts here.</div>
+  </div>
+
+  <div id="relaxed" class="mood-section">
+    <div class="quote">"Almost everything will work again if you unplug it for a few minutes… including you." – Anne Lamott</div>
+    <div class="tip">Stay in the moment. Enjoy the stillness. 🌿</div>
+    <div class="description">Peace looks good on you. Stay grounded, breathe deeply, and let your calm energy guide you today. You’re doing just fine.</div>
+  </div>
+
+</body>
+</html>
+
